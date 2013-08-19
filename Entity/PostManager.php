@@ -180,6 +180,11 @@ class PostManager extends ModelPostManager
             $query->andWhere('p.category = :categoryid');
             $parameters['categoryid'] = $criteria['category']->getId();
         }
+        
+        if (isset($criteria['locale'])) {
+            $query->andWhere('p.locale = :locale');
+            $parameters['locale'] = $criteria['locale'];
+        }
 
         $query->setParameters($parameters);
 
